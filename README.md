@@ -1,0 +1,1 @@
+# komtet-kassa-joomshopping-3-plugin

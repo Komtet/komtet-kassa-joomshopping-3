@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.4" type="plugin" group="system">
+	<name>Joomshopping 3 KOMTET Kassa</name>
+	<author>Komtet</author>
+	<authorUrl>kassa.komtet.ru</authorUrl>
+	<version>1.0.2</version>
+	<description>Fiscalization plugin for KOMTET Kassa</description>
+
+	<files>
+        <folder>helpers</folder>
+        <folder>sql</folder>
+        <filename plugin="komtetkassa">komtetkassa.php</filename>
+        <filename>index.html</filename>
+	</files>
+
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.sql</file>
+		</sql>
+	</install>
+
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.sql</file>
+		</sql>
+	</uninstall>
+
+	<config>
+		<fields name="params">
+
+			<fieldset name="basic">
+				<field name="shop_id" type="text"
+					label="ID Магазина"
+				/>
+
+				<field name="secret" type="text"
+					label="Secret Магазина"
+				/>
+
+				<field name="queue_id" type="text"
+					label="ID Очереди"
+				/>
+
+				<field name="is_print_check" type="radio"
+					default="0"
+					label="Печатать чек"
+				>
+					<option value="1">Да</option>
+					<option value="0">Нет</option>
+				</field>
+
+				<field name="sno" type="list"
+					label="Система налогообложения"
+				>
+					<option value="osn">ОСН</option>
+					<option value="usn_dohod">УСН доход</option>
+					<option value="usn_dohod_rashod">УСН доход - расход</option>
+					<option value="envd">ЕНВД</option>
+					<option value="esn">ЕСН</option>
+					<option value="patent">Патент</option>
+				</field>
+				<field name="pm_methods" type="text"
+					label="ID метедов оплаты, для которых проводить фискализацию, через запятую"
+					description="Самая правая колонка на таблице метедов оплаты"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+
+</extension>

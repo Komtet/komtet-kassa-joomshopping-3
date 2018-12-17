@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS `#__jshopping_order_fiscalization_status`;

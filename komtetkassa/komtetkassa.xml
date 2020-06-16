@@ -30,15 +30,15 @@
 
 			<fieldset name="basic">
 				<field name="shop_id" type="text"
-					label="ID Магазина"
+					label="ID магазина"
 				/>
 
 				<field name="secret" type="text"
-					label="Secret Магазина"
+					label="Секретный ключ магазина"
 				/>
 
 				<field name="queue_id" type="text"
-					label="ID Очереди"
+					label="ID очереди"
 				/>
 
 				<field name="is_print_check" type="radio"

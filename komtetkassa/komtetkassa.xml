@@ -49,14 +49,21 @@
 					<option value="0">Нет</option>
 				</field>
 
+				<field name="is_internet" type="radio"
+					default="1"
+					label="Признак расчета в сети «Интернет»"
+				>
+					<option value="1">Да</option>
+					<option value="0">Нет</option>
+				</field>
+
 				<field name="sno" type="list"
 					label="Система налогообложения"
 				>
 					<option value="osn">ОСН</option>
 					<option value="usn_dohod">УСН доход</option>
 					<option value="usn_dohod_rashod">УСН доход - расход</option>
-					<option value="envd">ЕНВД</option>
-					<option value="esn">ЕСН</option>
+					<option value="esn">ЕСХН</option>
 					<option value="patent">Патент</option>
 				</field>
 				<field name="pm_methods" type="text"

@@ -70,6 +70,11 @@ class Check
     private $shouldPrint = false;
 
     /**
+     * @var bool
+     */
+    private $internet = false;
+
+    /**
      * @var Payment[]
      */
     private $payments = array();
@@ -132,6 +137,18 @@ class Check
     }
 
     /**
+     * @param bool $value
+     *
+     * @return Check
+     */
+    public function setInternet($value)
+    {
+        $this->internet = (bool) $value;
+
+        return $this;
+    }
+
+    /**
      * @param Payment $payment
      *
      * @return Check
@@ -160,7 +177,7 @@ class Check
      */
     public function asArray()
     {
-        return array(
+        $result = [
             'task_id' => $this->id,
             'user' => $this->email,
             'print' => $this->shouldPrint,
@@ -178,6 +195,12 @@ class Check
                 },
                 $this->positions
             ),
-        );
+        ];
+
+        if ($this->internet !== null) {
+            $result['internet'] = $this->internet;
+        }
+
+        return $result;
     }
 }

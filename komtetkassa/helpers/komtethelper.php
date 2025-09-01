@@ -46,9 +46,6 @@ class komtetHelper
 		    case 'usn_dohod_rashod':
 		        $parsed_sno = 2;
 		        break;
-	        case 'envd':
-		        $parsed_sno = 3;
-		        break;
 	        case 'esn':
 		        $parsed_sno = 4;
 		        break;
@@ -63,6 +60,11 @@ class komtetHelper
 
 		$check = new Check($order->order_id, $order->email, $check_method, $parsed_sno);
 		$check->setShouldPrint($params->get('is_print_check'));
+
+        if ($params->get('is_internet')) {
+            $check->setInternet(true);
+        }
+
 		$check->addPayment($payment);
 
 		$vat = new Vat(Vat::RATE_NO);

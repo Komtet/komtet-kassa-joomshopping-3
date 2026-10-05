@@ -42,6 +42,11 @@ class Vat
     const RATE_20 = '20';
 
     /**
+     * 22%
+     */
+    const RATE_22 = '22';
+
+    /**
      * 5/105
      */
     const RATE_105 = '105';
@@ -60,6 +65,11 @@ class Vat
      * 20/120
      */
     const RATE_120 = '120';
+
+    /**
+     * 22/122
+     */
+    const RATE_122 = '122';
 
     private $rate;
 
@@ -89,6 +99,9 @@ class Vat
             case '20/120':
                 $rate = static::RATE_120;
                 break;
+            case '22/122':
+                $rate = static::RATE_122;
+                break;
             default:
                 if (!in_array($rate, array(
                     static::RATE_NO,
@@ -97,10 +110,12 @@ class Vat
                     static::RATE_7,
                     static::RATE_10,
                     static::RATE_20,
+                    static::RATE_22,
                     static::RATE_105,
                     static::RATE_107,
                     static::RATE_110,
-                    static::RATE_120
+                    static::RATE_120,
+                    static::RATE_122
                 ))) {
                     throw new \InvalidArgumentException(sprintf('Unknown VAT rate: %s', $rate));
                 }
